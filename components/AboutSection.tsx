@@ -42,7 +42,7 @@ const AboutSection = () => {
                         </div>
                         <a
                             href="#contact"
-                            className="btn-primary inline-block shadow-xl hover:shadow-2xl"
+                            className="px-8 py-3 bg-charcoal text-white text-sm font-bold tracking-widest uppercase transition-all duration-300 inline-block shadow-xl hover:bg-gold hover:text-white hover:shadow-2xl"
                         >
                             Contact Marci
                         </a>
