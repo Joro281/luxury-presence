@@ -151,7 +151,21 @@ const ContactSection = () => {
             </div>
 
             {/* Bottom: Map - Full Width Outside Container */}
-            <div className="w-full h-[500px] relative mt-16 border-t border-white/10">
+            <div className="w-full h-[500px] relative mt-16 border-t border-white/10 group/map">
+                {/* Gradient Overlay to blend with section */}
+                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-charcoal to-transparent z-10 pointer-events-none" />
+
+                {/* Floating "View on Google Maps" Badge */}
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=3190+HW-160,+Suite+F,+Pahrump,+Nevada+89048"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-8 left-8 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full flex items-center gap-3 hover:bg-gold hover:text-charcoal hover:border-gold transition-all duration-300 shadow-xl group-hover/map:-translate-y-2"
+                >
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm font-medium tracking-wide uppercase">View on Google Maps</span>
+                </a>
+
                 <Map
                     initialViewState={coordinates}
                     style={{ width: "100%", height: "100%" }}
@@ -165,14 +179,17 @@ const ContactSection = () => {
                         latitude={coordinates.latitude}
                         anchor="bottom"
                     >
-                        <div className="relative flex flex-col items-center group cursor-pointer">
-                            <div className="w-12 h-12 bg-charcoal/90 rounded-full border-2 border-gold flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110">
-                                <div className="w-3 h-3 bg-gold rounded-full" />
-                            </div>
+                        <a
+                            href="https://www.google.com/maps/dir/?api=1&destination=3190+HW-160,+Suite+F,+Pahrump,+Nevada+89048"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative flex flex-col items-center group cursor-pointer -translate-y-1/2"
+                        >
+                            <MapPin className="w-12 h-12 text-gold fill-charcoal drop-shadow-xl transform transition-transform group-hover:scale-110" />
                             <div className="absolute top-14 bg-charcoal text-white text-xs px-3 py-1 rounded bg-opacity-90 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
                                 The Ridge Realty Group
                             </div>
-                        </div>
+                        </a>
                     </Marker>
                 </Map>
             </div>
